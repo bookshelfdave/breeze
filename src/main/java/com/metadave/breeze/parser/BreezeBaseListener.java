@@ -1,4 +1,4 @@
-// Generated from ./src/main/java/com/metadave/breeze/parser/com.metadave.breeze.Breeze.g4 by ANTLR 4.0
+// Generated from ./src/main/java/com/metadave/breeze/parser/Breeze.g4 by ANTLR 4.0
 package com.metadave.breeze.parser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -18,6 +18,9 @@ public class BreezeBaseListener implements BreezeListener {
 
 	@Override public void enterAsd(BreezeParser.AsdContext ctx) { }
 	@Override public void exitAsd(BreezeParser.AsdContext ctx) { }
+
+	@Override public void enterAtts(BreezeParser.AttsContext ctx) { }
+	@Override public void exitAtts(BreezeParser.AttsContext ctx) { }
 
 	@Override public void enterProduct_type(BreezeParser.Product_typeContext ctx) { }
 	@Override public void exitProduct_type(BreezeParser.Product_typeContext ctx) { }

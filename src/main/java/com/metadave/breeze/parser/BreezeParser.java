@@ -1,4 +1,4 @@
-// Generated from ./src/main/java/com/metadave/breeze/parser/com.metadave.breeze.Breeze.g4 by ANTLR 4.0
+// Generated from ./src/main/java/com/metadave/breeze/parser/Breeze.g4 by ANTLR 4.0
 package com.metadave.breeze.parser;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -23,15 +23,15 @@ public class BreezeParser extends Parser {
 	};
 	public static final int
 		RULE_asd = 0, RULE_definition = 1, RULE_type = 2, RULE_product_type = 3, 
-		RULE_sum_type = 4, RULE_constructor = 5, RULE_fields = 6, RULE_field = 7, 
-		RULE_id = 8;
+		RULE_sum_type = 4, RULE_atts = 5, RULE_constructor = 6, RULE_fields = 7, 
+		RULE_field = 8, RULE_id = 9;
 	public static final String[] ruleNames = {
-		"asd", "definition", "type", "product_type", "sum_type", "constructor", 
+		"asd", "definition", "type", "product_type", "sum_type", "atts", "constructor", 
 		"fields", "field", "id"
 	};
 
 	@Override
-	public String getGrammarFileName() { return "com.metadave.breeze.Breeze.g4"; }
+	public String getGrammarFileName() { return "Breeze.g4"; }
 
 	@Override
 	public String[] getTokenNames() { return tokenNames; }
@@ -74,16 +74,16 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(19); 
+			setState(21); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(18); definition();
+				setState(20); definition();
 				}
 				}
-				setState(21); 
+				setState(23); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==TYPEID );
@@ -126,9 +126,9 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(23); match(TYPEID);
-			setState(24); match(EQUALS);
-			setState(25); type();
+			setState(25); match(TYPEID);
+			setState(26); match(EQUALS);
+			setState(27); type();
 			}
 		}
 		catch (RecognitionException re) {
@@ -167,18 +167,18 @@ public class BreezeParser extends Parser {
 		TypeContext _localctx = new TypeContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_type);
 		try {
-			setState(29);
+			setState(31);
 			switch (_input.LA(1)) {
 			case CONID:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(27); sum_type();
+				setState(29); sum_type();
 				}
 				break;
 			case LPAREN:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(28); product_type();
+				setState(30); product_type();
 				}
 				break;
 			default:
@@ -220,7 +220,7 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(31); fields();
+			setState(33); fields();
 			}
 		}
 		catch (RecognitionException re) {
@@ -238,16 +238,13 @@ public class BreezeParser extends Parser {
 		public ConstructorContext constructor(int i) {
 			return getRuleContext(ConstructorContext.class,i);
 		}
-		public TerminalNode LSQUARE() { return getToken(BreezeParser.LSQUARE, 0); }
-		public TerminalNode RSQUARE() { return getToken(BreezeParser.RSQUARE, 0); }
 		public TerminalNode BAR(int i) {
 			return getToken(BreezeParser.BAR, i);
 		}
-		public List<TerminalNode> BAR() { return getTokens(BreezeParser.BAR); }
-		public FieldsContext fields() {
-			return getRuleContext(FieldsContext.class,0);
+		public AttsContext atts() {
+			return getRuleContext(AttsContext.class,0);
 		}
-		public TerminalNode ATTS() { return getToken(BreezeParser.ATTS, 0); }
+		public List<TerminalNode> BAR() { return getTokens(BreezeParser.BAR); }
 		public List<ConstructorContext> constructor() {
 			return getRuleContexts(ConstructorContext.class);
 		}
@@ -272,32 +269,81 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(33); constructor();
-			setState(38);
+			setState(35); constructor();
+			setState(40);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==BAR) {
 				{
 				{
-				setState(34); match(BAR);
-				setState(35); constructor();
+				setState(36); match(BAR);
+				setState(37); constructor();
 				}
 				}
-				setState(40);
+				setState(42);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(41); match(LSQUARE);
-			setState(42); match(ATTS);
 			setState(44);
 			_la = _input.LA(1);
-			if (_la==LPAREN) {
+			if (_la==LSQUARE) {
 				{
-				setState(43); fields();
+				setState(43); atts();
 				}
 			}
 
-			setState(46); match(RSQUARE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class AttsContext extends ParserRuleContext {
+		public TerminalNode LSQUARE() { return getToken(BreezeParser.LSQUARE, 0); }
+		public TerminalNode RSQUARE() { return getToken(BreezeParser.RSQUARE, 0); }
+		public FieldsContext fields() {
+			return getRuleContext(FieldsContext.class,0);
+		}
+		public TerminalNode ATTS() { return getToken(BreezeParser.ATTS, 0); }
+		public AttsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_atts; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BreezeListener ) ((BreezeListener)listener).enterAtts(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BreezeListener ) ((BreezeListener)listener).exitAtts(this);
+		}
+	}
+
+	public final AttsContext atts() throws RecognitionException {
+		AttsContext _localctx = new AttsContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_atts);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(46); match(LSQUARE);
+			setState(47); match(ATTS);
+			setState(49);
+			_la = _input.LA(1);
+			if (_la==LPAREN) {
+				{
+				setState(48); fields();
+				}
+			}
+
+			setState(51); match(RSQUARE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -332,17 +378,17 @@ public class BreezeParser extends Parser {
 
 	public final ConstructorContext constructor() throws RecognitionException {
 		ConstructorContext _localctx = new ConstructorContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_constructor);
+		enterRule(_localctx, 12, RULE_constructor);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(48); match(CONID);
-			setState(50);
+			setState(53); match(CONID);
+			setState(55);
 			_la = _input.LA(1);
 			if (_la==LPAREN) {
 				{
-				setState(49); fields();
+				setState(54); fields();
 				}
 			}
 
@@ -388,28 +434,28 @@ public class BreezeParser extends Parser {
 
 	public final FieldsContext fields() throws RecognitionException {
 		FieldsContext _localctx = new FieldsContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_fields);
+		enterRule(_localctx, 14, RULE_fields);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(52); match(LPAREN);
-			setState(53); field();
-			setState(58);
+			setState(57); match(LPAREN);
+			setState(58); field();
+			setState(63);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(54); match(COMMA);
-				setState(55); field();
+				setState(59); match(COMMA);
+				setState(60); field();
 				}
 				}
-				setState(60);
+				setState(65);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(61); match(RPAREN);
+			setState(66); match(RPAREN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -446,17 +492,17 @@ public class BreezeParser extends Parser {
 
 	public final FieldContext field() throws RecognitionException {
 		FieldContext _localctx = new FieldContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_field);
+		enterRule(_localctx, 16, RULE_field);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(63); match(TYPEID);
-			setState(65);
+			setState(68); match(TYPEID);
+			setState(70);
 			_la = _input.LA(1);
 			if (_la==QUESTION || _la==SPLAT) {
 				{
-				setState(64);
+				setState(69);
 				_la = _input.LA(1);
 				if ( !(_la==QUESTION || _la==SPLAT) ) {
 				_errHandler.recoverInline(this);
@@ -465,7 +511,14 @@ public class BreezeParser extends Parser {
 				}
 			}
 
-			setState(67); id();
+			setState(73);
+			_la = _input.LA(1);
+			if (_la==TYPEID || _la==CONID) {
+				{
+				setState(72); id();
+				}
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -498,12 +551,12 @@ public class BreezeParser extends Parser {
 
 	public final IdContext id() throws RecognitionException {
 		IdContext _localctx = new IdContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_id);
+		enterRule(_localctx, 18, RULE_id);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(69);
+			setState(75);
 			_la = _input.LA(1);
 			if ( !(_la==TYPEID || _la==CONID) ) {
 			_errHandler.recoverInline(this);
@@ -523,24 +576,25 @@ public class BreezeParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\2\3\20J\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t"+
-		"\t\4\n\t\n\3\2\6\2\26\n\2\r\2\16\2\27\3\3\3\3\3\3\3\3\3\4\3\4\5\4 \n\4"+
-		"\3\5\3\5\3\6\3\6\3\6\7\6\'\n\6\f\6\16\6*\13\6\3\6\3\6\3\6\5\6/\n\6\3\6"+
-		"\3\6\3\7\3\7\5\7\65\n\7\3\b\3\b\3\b\3\b\7\b;\n\b\f\b\16\b>\13\b\3\b\3"+
-		"\b\3\t\3\t\5\tD\n\t\3\t\3\t\3\n\3\n\3\n\2\13\2\4\6\b\n\f\16\20\22\2\4"+
-		"\3\n\13\3\r\16G\2\25\3\2\2\2\4\31\3\2\2\2\6\37\3\2\2\2\b!\3\2\2\2\n#\3"+
-		"\2\2\2\f\62\3\2\2\2\16\66\3\2\2\2\20A\3\2\2\2\22G\3\2\2\2\24\26\5\4\3"+
-		"\2\25\24\3\2\2\2\26\27\3\2\2\2\27\25\3\2\2\2\27\30\3\2\2\2\30\3\3\2\2"+
-		"\2\31\32\7\r\2\2\32\33\7\b\2\2\33\34\5\6\4\2\34\5\3\2\2\2\35 \5\n\6\2"+
-		"\36 \5\b\5\2\37\35\3\2\2\2\37\36\3\2\2\2 \7\3\2\2\2!\"\5\16\b\2\"\t\3"+
-		"\2\2\2#(\5\f\7\2$%\7\t\2\2%\'\5\f\7\2&$\3\2\2\2\'*\3\2\2\2(&\3\2\2\2("+
-		")\3\2\2\2)+\3\2\2\2*(\3\2\2\2+,\7\3\2\2,.\7\f\2\2-/\5\16\b\2.-\3\2\2\2"+
-		"./\3\2\2\2/\60\3\2\2\2\60\61\7\4\2\2\61\13\3\2\2\2\62\64\7\16\2\2\63\65"+
-		"\5\16\b\2\64\63\3\2\2\2\64\65\3\2\2\2\65\r\3\2\2\2\66\67\7\5\2\2\67<\5"+
-		"\20\t\289\7\7\2\29;\5\20\t\2:8\3\2\2\2;>\3\2\2\2<:\3\2\2\2<=\3\2\2\2="+
-		"?\3\2\2\2><\3\2\2\2?@\7\6\2\2@\17\3\2\2\2AC\7\r\2\2BD\t\2\2\2CB\3\2\2"+
-		"\2CD\3\2\2\2DE\3\2\2\2EF\5\22\n\2F\21\3\2\2\2GH\t\3\2\2H\23\3\2\2\2\t"+
-		"\27\37(.\64<C";
+		"\2\3\20P\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t"+
+		"\t\4\n\t\n\4\13\t\13\3\2\6\2\30\n\2\r\2\16\2\31\3\3\3\3\3\3\3\3\3\4\3"+
+		"\4\5\4\"\n\4\3\5\3\5\3\6\3\6\3\6\7\6)\n\6\f\6\16\6,\13\6\3\6\5\6/\n\6"+
+		"\3\7\3\7\3\7\5\7\64\n\7\3\7\3\7\3\b\3\b\5\b:\n\b\3\t\3\t\3\t\3\t\7\t@"+
+		"\n\t\f\t\16\tC\13\t\3\t\3\t\3\n\3\n\5\nI\n\n\3\n\5\nL\n\n\3\13\3\13\3"+
+		"\13\2\f\2\4\6\b\n\f\16\20\22\24\2\4\3\n\13\3\r\16N\2\27\3\2\2\2\4\33\3"+
+		"\2\2\2\6!\3\2\2\2\b#\3\2\2\2\n%\3\2\2\2\f\60\3\2\2\2\16\67\3\2\2\2\20"+
+		";\3\2\2\2\22F\3\2\2\2\24M\3\2\2\2\26\30\5\4\3\2\27\26\3\2\2\2\30\31\3"+
+		"\2\2\2\31\27\3\2\2\2\31\32\3\2\2\2\32\3\3\2\2\2\33\34\7\r\2\2\34\35\7"+
+		"\b\2\2\35\36\5\6\4\2\36\5\3\2\2\2\37\"\5\n\6\2 \"\5\b\5\2!\37\3\2\2\2"+
+		"! \3\2\2\2\"\7\3\2\2\2#$\5\20\t\2$\t\3\2\2\2%*\5\16\b\2&\'\7\t\2\2\')"+
+		"\5\16\b\2(&\3\2\2\2),\3\2\2\2*(\3\2\2\2*+\3\2\2\2+.\3\2\2\2,*\3\2\2\2"+
+		"-/\5\f\7\2.-\3\2\2\2./\3\2\2\2/\13\3\2\2\2\60\61\7\3\2\2\61\63\7\f\2\2"+
+		"\62\64\5\20\t\2\63\62\3\2\2\2\63\64\3\2\2\2\64\65\3\2\2\2\65\66\7\4\2"+
+		"\2\66\r\3\2\2\2\679\7\16\2\28:\5\20\t\298\3\2\2\29:\3\2\2\2:\17\3\2\2"+
+		"\2;<\7\5\2\2<A\5\22\n\2=>\7\7\2\2>@\5\22\n\2?=\3\2\2\2@C\3\2\2\2A?\3\2"+
+		"\2\2AB\3\2\2\2BD\3\2\2\2CA\3\2\2\2DE\7\6\2\2E\21\3\2\2\2FH\7\r\2\2GI\t"+
+		"\2\2\2HG\3\2\2\2HI\3\2\2\2IK\3\2\2\2JL\5\24\13\2KJ\3\2\2\2KL\3\2\2\2L"+
+		"\23\3\2\2\2MN\t\3\2\2N\25\3\2\2\2\13\31!*.\639AHK";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {

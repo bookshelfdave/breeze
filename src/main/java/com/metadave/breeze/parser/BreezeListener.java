@@ -1,4 +1,4 @@
-// Generated from ./src/main/java/com/metadave/breeze/parser/com.metadave.breeze.Breeze.g4 by ANTLR 4.0
+// Generated from ./src/main/java/com/metadave/breeze/parser/Breeze.g4 by ANTLR 4.0
 package com.metadave.breeze.parser;
 import org.antlr.v4.runtime.tree.*;
 import org.antlr.v4.runtime.Token;
@@ -15,6 +15,9 @@ public interface BreezeListener extends ParseTreeListener {
 
 	void enterAsd(BreezeParser.AsdContext ctx);
 	void exitAsd(BreezeParser.AsdContext ctx);
+
+	void enterAtts(BreezeParser.AttsContext ctx);
+	void exitAtts(BreezeParser.AttsContext ctx);
 
 	void enterProduct_type(BreezeParser.Product_typeContext ctx);
 	void exitProduct_type(BreezeParser.Product_typeContext ctx);

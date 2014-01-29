@@ -1,4 +1,4 @@
-// Generated from ./src/main/java/com/metadave/breeze/parser/com.metadave.breeze.Breeze.g4 by ANTLR 4.0
+// Generated from ./src/main/java/com/metadave/breeze/parser/Breeze.g4 by ANTLR 4.0
 package com.metadave.breeze.parser;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -38,7 +38,7 @@ public class BreezeLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "com.metadave.breeze.Breeze.g4"; }
+	public String getGrammarFileName() { return "Breeze.g4"; }
 
 	@Override
 	public String[] getTokenNames() { return tokenNames; }

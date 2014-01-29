@@ -1,4 +1,4 @@
-grammar com.metadave.breeze.Breeze;
+grammar Breeze;
 
 /*
  * -------------------------------------------------------------------
@@ -29,14 +29,15 @@ type:         sum_type | product_type;
 
 product_type: fields;
 
-sum_type:     constructor (BAR constructor)*
-                 LSQUARE ATTS fields? RSQUARE;
+sum_type:     constructor (BAR constructor)* atts?;
+
+atts: LSQUARE ATTS fields? RSQUARE;
 
 constructor:  CONID fields?;
 
 fields:       LPAREN field (COMMA field)* RPAREN;
 
-field:        TYPEID (QUESTION | SPLAT)? id;
+field:        TYPEID (QUESTION | SPLAT)? id?;
 
 id:           TYPEID | CONID;
 
