@@ -1,4 +1,4 @@
-grammar Breeze;
+grammar com.metadave.breeze.Breeze;
 
 /*
  * -------------------------------------------------------------------
