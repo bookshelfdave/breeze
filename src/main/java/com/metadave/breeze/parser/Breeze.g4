@@ -31,7 +31,7 @@ product_type: fields;
 
 sum_type:     constructor (BAR constructor)* atts?;
 
-atts: LSQUARE ATTS fields? RSQUARE;
+atts:         LSQUARE ATTS fields? RSQUARE;
 
 constructor:  CONID fields?;
 
