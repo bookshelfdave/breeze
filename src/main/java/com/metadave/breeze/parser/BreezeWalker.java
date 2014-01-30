@@ -89,9 +89,9 @@ public class BreezeWalker extends BreezeBaseListener {
     @Override
     public void exitType(BreezeParser.TypeContext ctx) {
         if(ctx.sum_type() != null) {
-            setValue(ctx, ctx.sum_type());
+            setValue(ctx, getValue(ctx.sum_type()));
         } else if(ctx.product_type() != null) {
-            setValue(ctx, ctx.product_type());
+            setValue(ctx, getValue(ctx.product_type()));
         }
     }
 
