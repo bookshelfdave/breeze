@@ -64,7 +64,8 @@ public class BreezeWalker extends BreezeBaseListener {
             BreezeDefinition bd = (BreezeDefinition)getValue(dc);
             defs.add(bd);
         }
-        setValue(ctx, defs);
+        BreezeASD asd = new BreezeASD(defs);
+        setValue(ctx, asd);
     }
 
     @Override

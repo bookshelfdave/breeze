@@ -1,5 +1,6 @@
 package com.metadave.breeze;
 
+import com.metadave.breeze.ast.BreezeASD;
 import com.metadave.breeze.parser.BreezeLexer;
 import com.metadave.breeze.parser.BreezeParser;
 import com.metadave.breeze.parser.BreezeWalker;
@@ -20,6 +21,8 @@ public class Breeze {
         try {
             BreezeParser.AsdContext ctx = parser.asd();
             walker.walk(b, ctx);
+            BreezeASD asd = (BreezeASD)b.getValue(ctx);
+            System.out.println(asd);
         } catch (Throwable e) {
             throw new Exception("Breeze parse error", e);
         }
