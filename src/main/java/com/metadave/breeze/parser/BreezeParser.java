@@ -235,6 +235,8 @@ public class BreezeParser extends Parser {
 	}
 
 	public static class Sum_typeContext extends ParserRuleContext {
+		public ConstructorContext constructor;
+		public List<ConstructorContext> ctor = new ArrayList<ConstructorContext>();
 		public ConstructorContext constructor(int i) {
 			return getRuleContext(ConstructorContext.class,i);
 		}
@@ -269,7 +271,8 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(35); constructor();
+			setState(35); ((Sum_typeContext)_localctx).constructor = constructor();
+			((Sum_typeContext)_localctx).ctor.add(((Sum_typeContext)_localctx).constructor);
 			setState(40);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -277,7 +280,8 @@ public class BreezeParser extends Parser {
 				{
 				{
 				setState(36); match(BAR);
-				setState(37); constructor();
+				setState(37); ((Sum_typeContext)_localctx).constructor = constructor();
+				((Sum_typeContext)_localctx).ctor.add(((Sum_typeContext)_localctx).constructor);
 				}
 				}
 				setState(42);
@@ -402,6 +406,8 @@ public class BreezeParser extends Parser {
 	}
 
 	public static class FieldsContext extends ParserRuleContext {
+		public FieldContext field;
+		public List<FieldContext> fs = new ArrayList<FieldContext>();
 		public List<FieldContext> field() {
 			return getRuleContexts(FieldContext.class);
 		}
@@ -436,7 +442,8 @@ public class BreezeParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(54); match(LPAREN);
-			setState(55); field();
+			setState(55); ((FieldsContext)_localctx).field = field();
+			((FieldsContext)_localctx).fs.add(((FieldsContext)_localctx).field);
 			setState(60);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -444,7 +451,8 @@ public class BreezeParser extends Parser {
 				{
 				{
 				setState(56); match(COMMA);
-				setState(57); field();
+				setState(57); ((FieldsContext)_localctx).field = field();
+				((FieldsContext)_localctx).fs.add(((FieldsContext)_localctx).field);
 				}
 				}
 				setState(62);

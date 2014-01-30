@@ -11,6 +11,7 @@ public class BreezeConstructor implements BreezeASTBase {
 
     @Override
     public void accept(BreezeASTVisitor visitor) {
+        fields.accept(visitor);
         visitor.visit(this);
     }
 }

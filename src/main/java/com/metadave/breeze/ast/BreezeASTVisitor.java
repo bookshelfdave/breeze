@@ -2,7 +2,6 @@ package com.metadave.breeze.ast;
 
 public interface BreezeASTVisitor {
     void visit(BreezeASD asd);
-    void visit(BreezeAtts atts);
     void visit(BreezeConstructor ctor);
     void visit(BreezeDefinition def);
     void visit(BreezeField field);

@@ -22,4 +22,9 @@ public class BreezeField implements BreezeASTBase {
     public void accept(BreezeASTVisitor visitor) {
         visitor.visit(this);
     }
+
+    @Override
+    public String toString() {
+        return "<" + id + ":" + typeid + " (" + q + ")>";
+    }
 }

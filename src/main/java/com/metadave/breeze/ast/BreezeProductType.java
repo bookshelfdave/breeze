@@ -9,6 +9,7 @@ public class BreezeProductType extends BreezeType implements BreezeASTBase  {
 
     @Override
     public void accept(BreezeASTVisitor visitor) {
+        fields.accept(visitor);
         visitor.visit(this);
     }
 }

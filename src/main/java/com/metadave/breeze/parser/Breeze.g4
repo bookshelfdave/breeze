@@ -29,13 +29,13 @@ type:         sum_type | product_type;
 
 product_type: fields;
 
-sum_type:     constructor (BAR constructor)* atts?;
+sum_type:     ctor+=constructor (BAR ctor+=constructor)* atts?;
 
 atts:         ATTS fields?;
 
 constructor:  CONID fields?;
 
-fields:       LPAREN field (COMMA field)* RPAREN;
+fields:       LPAREN fs+=field (COMMA fs+=field)* RPAREN;
 
 field:        TYPEID (QUESTION | SPLAT)? id?;
 

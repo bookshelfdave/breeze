@@ -12,6 +12,9 @@ public class BreezeFields implements BreezeASTBase {
 
     @Override
     public void accept(BreezeASTVisitor visitor) {
+        for(BreezeField f: fields) {
+            f.accept(visitor);
+        }
         visitor.visit(this);
     }
 }

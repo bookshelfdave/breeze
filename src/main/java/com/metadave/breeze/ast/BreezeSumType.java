@@ -14,6 +14,10 @@ public class BreezeSumType extends BreezeType implements BreezeASTBase {
 
     @Override
     public void accept(BreezeASTVisitor visitor) {
+        for(BreezeConstructor ctor: ctors) {
+            ctor.accept(visitor);
+        }
+        attributes.accept(visitor);
         visitor.visit(this);
     }
 }
