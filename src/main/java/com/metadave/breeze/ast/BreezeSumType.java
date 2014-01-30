@@ -1,4 +1,19 @@
 package com.metadave.breeze.ast;
 
-public class BreezeSumType {
+import java.util.ArrayList;
+import java.util.List;
+
+public class BreezeSumType extends BreezeType implements BreezeASTBase {
+    List<BreezeConstructor> ctors;
+    BreezeFields attributes;
+
+    public BreezeSumType(List<BreezeConstructor> ctors, BreezeFields fields) {
+        this.ctors = ctors;
+        this.attributes = fields;
+    }
+
+    @Override
+    public void accept(BreezeASTVisitor visitor) {
+        visitor.visit(this);
+    }
 }
