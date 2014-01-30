@@ -286,7 +286,7 @@ public class BreezeParser extends Parser {
 			}
 			setState(44);
 			_la = _input.LA(1);
-			if (_la==LSQUARE) {
+			if (_la==ATTS) {
 				{
 				setState(43); atts();
 				}
@@ -306,8 +306,6 @@ public class BreezeParser extends Parser {
 	}
 
 	public static class AttsContext extends ParserRuleContext {
-		public TerminalNode LSQUARE() { return getToken(BreezeParser.LSQUARE, 0); }
-		public TerminalNode RSQUARE() { return getToken(BreezeParser.RSQUARE, 0); }
 		public FieldsContext fields() {
 			return getRuleContext(FieldsContext.class,0);
 		}
@@ -333,17 +331,15 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(46); match(LSQUARE);
-			setState(47); match(ATTS);
-			setState(49);
+			setState(46); match(ATTS);
+			setState(48);
 			_la = _input.LA(1);
 			if (_la==LPAREN) {
 				{
-				setState(48); fields();
+				setState(47); fields();
 				}
 			}
 
-			setState(51); match(RSQUARE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -383,12 +379,12 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(53); match(CONID);
-			setState(55);
+			setState(50); match(CONID);
+			setState(52);
 			_la = _input.LA(1);
 			if (_la==LPAREN) {
 				{
-				setState(54); fields();
+				setState(51); fields();
 				}
 			}
 
@@ -439,23 +435,23 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(57); match(LPAREN);
-			setState(58); field();
-			setState(63);
+			setState(54); match(LPAREN);
+			setState(55); field();
+			setState(60);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(59); match(COMMA);
-				setState(60); field();
+				setState(56); match(COMMA);
+				setState(57); field();
 				}
 				}
-				setState(65);
+				setState(62);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(66); match(RPAREN);
+			setState(63); match(RPAREN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -497,12 +493,12 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(68); match(TYPEID);
-			setState(70);
+			setState(65); match(TYPEID);
+			setState(67);
 			_la = _input.LA(1);
 			if (_la==QUESTION || _la==SPLAT) {
 				{
-				setState(69);
+				setState(66);
 				_la = _input.LA(1);
 				if ( !(_la==QUESTION || _la==SPLAT) ) {
 				_errHandler.recoverInline(this);
@@ -511,11 +507,11 @@ public class BreezeParser extends Parser {
 				}
 			}
 
-			setState(73);
+			setState(70);
 			_la = _input.LA(1);
 			if (_la==TYPEID || _la==CONID) {
 				{
-				setState(72); id();
+				setState(69); id();
 				}
 			}
 
@@ -556,7 +552,7 @@ public class BreezeParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(75);
+			setState(72);
 			_la = _input.LA(1);
 			if ( !(_la==TYPEID || _la==CONID) ) {
 			_errHandler.recoverInline(this);
@@ -576,25 +572,25 @@ public class BreezeParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\2\3\20P\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t"+
+		"\2\3\20M\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t"+
 		"\t\4\n\t\n\4\13\t\13\3\2\6\2\30\n\2\r\2\16\2\31\3\3\3\3\3\3\3\3\3\4\3"+
 		"\4\5\4\"\n\4\3\5\3\5\3\6\3\6\3\6\7\6)\n\6\f\6\16\6,\13\6\3\6\5\6/\n\6"+
-		"\3\7\3\7\3\7\5\7\64\n\7\3\7\3\7\3\b\3\b\5\b:\n\b\3\t\3\t\3\t\3\t\7\t@"+
-		"\n\t\f\t\16\tC\13\t\3\t\3\t\3\n\3\n\5\nI\n\n\3\n\5\nL\n\n\3\13\3\13\3"+
-		"\13\2\f\2\4\6\b\n\f\16\20\22\24\2\4\3\n\13\3\r\16N\2\27\3\2\2\2\4\33\3"+
-		"\2\2\2\6!\3\2\2\2\b#\3\2\2\2\n%\3\2\2\2\f\60\3\2\2\2\16\67\3\2\2\2\20"+
-		";\3\2\2\2\22F\3\2\2\2\24M\3\2\2\2\26\30\5\4\3\2\27\26\3\2\2\2\30\31\3"+
-		"\2\2\2\31\27\3\2\2\2\31\32\3\2\2\2\32\3\3\2\2\2\33\34\7\r\2\2\34\35\7"+
-		"\b\2\2\35\36\5\6\4\2\36\5\3\2\2\2\37\"\5\n\6\2 \"\5\b\5\2!\37\3\2\2\2"+
-		"! \3\2\2\2\"\7\3\2\2\2#$\5\20\t\2$\t\3\2\2\2%*\5\16\b\2&\'\7\t\2\2\')"+
-		"\5\16\b\2(&\3\2\2\2),\3\2\2\2*(\3\2\2\2*+\3\2\2\2+.\3\2\2\2,*\3\2\2\2"+
-		"-/\5\f\7\2.-\3\2\2\2./\3\2\2\2/\13\3\2\2\2\60\61\7\3\2\2\61\63\7\f\2\2"+
-		"\62\64\5\20\t\2\63\62\3\2\2\2\63\64\3\2\2\2\64\65\3\2\2\2\65\66\7\4\2"+
-		"\2\66\r\3\2\2\2\679\7\16\2\28:\5\20\t\298\3\2\2\29:\3\2\2\2:\17\3\2\2"+
-		"\2;<\7\5\2\2<A\5\22\n\2=>\7\7\2\2>@\5\22\n\2?=\3\2\2\2@C\3\2\2\2A?\3\2"+
-		"\2\2AB\3\2\2\2BD\3\2\2\2CA\3\2\2\2DE\7\6\2\2E\21\3\2\2\2FH\7\r\2\2GI\t"+
-		"\2\2\2HG\3\2\2\2HI\3\2\2\2IK\3\2\2\2JL\5\24\13\2KJ\3\2\2\2KL\3\2\2\2L"+
-		"\23\3\2\2\2MN\t\3\2\2N\25\3\2\2\2\13\31!*.\639AHK";
+		"\3\7\3\7\5\7\63\n\7\3\b\3\b\5\b\67\n\b\3\t\3\t\3\t\3\t\7\t=\n\t\f\t\16"+
+		"\t@\13\t\3\t\3\t\3\n\3\n\5\nF\n\n\3\n\5\nI\n\n\3\13\3\13\3\13\2\f\2\4"+
+		"\6\b\n\f\16\20\22\24\2\4\3\n\13\3\r\16K\2\27\3\2\2\2\4\33\3\2\2\2\6!\3"+
+		"\2\2\2\b#\3\2\2\2\n%\3\2\2\2\f\60\3\2\2\2\16\64\3\2\2\2\208\3\2\2\2\22"+
+		"C\3\2\2\2\24J\3\2\2\2\26\30\5\4\3\2\27\26\3\2\2\2\30\31\3\2\2\2\31\27"+
+		"\3\2\2\2\31\32\3\2\2\2\32\3\3\2\2\2\33\34\7\r\2\2\34\35\7\b\2\2\35\36"+
+		"\5\6\4\2\36\5\3\2\2\2\37\"\5\n\6\2 \"\5\b\5\2!\37\3\2\2\2! \3\2\2\2\""+
+		"\7\3\2\2\2#$\5\20\t\2$\t\3\2\2\2%*\5\16\b\2&\'\7\t\2\2\')\5\16\b\2(&\3"+
+		"\2\2\2),\3\2\2\2*(\3\2\2\2*+\3\2\2\2+.\3\2\2\2,*\3\2\2\2-/\5\f\7\2.-\3"+
+		"\2\2\2./\3\2\2\2/\13\3\2\2\2\60\62\7\f\2\2\61\63\5\20\t\2\62\61\3\2\2"+
+		"\2\62\63\3\2\2\2\63\r\3\2\2\2\64\66\7\16\2\2\65\67\5\20\t\2\66\65\3\2"+
+		"\2\2\66\67\3\2\2\2\67\17\3\2\2\289\7\5\2\29>\5\22\n\2:;\7\7\2\2;=\5\22"+
+		"\n\2<:\3\2\2\2=@\3\2\2\2><\3\2\2\2>?\3\2\2\2?A\3\2\2\2@>\3\2\2\2AB\7\6"+
+		"\2\2B\21\3\2\2\2CE\7\r\2\2DF\t\2\2\2ED\3\2\2\2EF\3\2\2\2FH\3\2\2\2GI\5"+
+		"\24\13\2HG\3\2\2\2HI\3\2\2\2I\23\3\2\2\2JK\t\3\2\2K\25\3\2\2\2\13\31!"+
+		"*.\62\66>EH";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {
