@@ -1,12 +1,12 @@
 package com.metadave.breeze.ast;
 
 public interface BreezeASTVisitor {
-    void visit(BreezeASD asd);
-    void visit(BreezeConstructor ctor);
-    void visit(BreezeDefinition def);
-    void visit(BreezeField field);
-    void visit(BreezeFields fields);
-    void visit(BreezeProductType pt);
-    void visit(BreezeSumType st);
-    void visit(BreezeType t);
+    void visit(BreezeASD asd) throws Exception;
+    void visit(BreezeConstructor ctor) throws Exception;
+    void visit(BreezeDefinition def) throws Exception;
+    void visit(BreezeField field) throws Exception;
+    void visit(BreezeFields fields) throws Exception;
+    void visit(BreezeProductType pt) throws Exception;
+    void visit(BreezeSumType st) throws Exception;
+    void visit(BreezeType t) throws Exception;
 }

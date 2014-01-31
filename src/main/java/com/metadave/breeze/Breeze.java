@@ -1,9 +1,11 @@
 package com.metadave.breeze;
 
 import com.metadave.breeze.ast.BreezeASD;
+import com.metadave.breeze.ast.BreezeVerifyVisitor;
 import com.metadave.breeze.parser.BreezeLexer;
 import com.metadave.breeze.parser.BreezeParser;
 import com.metadave.breeze.parser.BreezeWalker;
+import com.metadave.breeze.render.BreezeSTRender;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -23,7 +25,10 @@ public class Breeze {
             walker.walk(b, ctx);
             BreezeASD asd = (BreezeASD)b.getValue(ctx);
             System.out.println(asd);
+            asd.accept(new BreezeVerifyVisitor());
+            //asd.accept(new BreezeSTRender());
         } catch (Throwable e) {
+            //e.printStackTrace ();
             throw new Exception("Breeze parse error", e);
         }
     }

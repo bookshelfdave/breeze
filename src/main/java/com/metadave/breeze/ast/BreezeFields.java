@@ -1,6 +1,5 @@
 package com.metadave.breeze.ast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BreezeFields implements BreezeASTBase {
@@ -11,10 +10,14 @@ public class BreezeFields implements BreezeASTBase {
     }
 
     @Override
-    public void accept(BreezeASTVisitor visitor) {
+    public void accept(BreezeASTVisitor visitor) throws Exception {
         for(BreezeField f: fields) {
             f.accept(visitor);
         }
         visitor.visit(this);
+    }
+
+    public List<BreezeField> getFields() {
+        return fields;
     }
 }

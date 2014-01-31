@@ -8,8 +8,12 @@ public class BreezeProductType extends BreezeType implements BreezeASTBase  {
     }
 
     @Override
-    public void accept(BreezeASTVisitor visitor) {
+    public void accept(BreezeASTVisitor visitor)  throws Exception {
         fields.accept(visitor);
         visitor.visit(this);
+    }
+
+    public BreezeFields getFields() {
+        return fields;
     }
 }

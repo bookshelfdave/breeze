@@ -19,8 +19,21 @@ public class BreezeField implements BreezeASTBase {
     }
 
     @Override
-    public void accept(BreezeASTVisitor visitor) {
+    public void accept(BreezeASTVisitor visitor)  throws Exception{
         visitor.visit(this);
+    }
+
+
+    public String getTypeid() {
+        return typeid;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public FieldQualifier getQ() {
+        return q;
     }
 
     @Override

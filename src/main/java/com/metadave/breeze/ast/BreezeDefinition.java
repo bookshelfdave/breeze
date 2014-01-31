@@ -10,8 +10,16 @@ public class BreezeDefinition implements BreezeASTBase {
     }
 
     @Override
-    public void accept(BreezeASTVisitor visitor) {
+    public void accept(BreezeASTVisitor visitor)  throws Exception{
         t.accept(visitor);
         visitor.visit(this);
+    }
+
+    public String getTypeId() {
+        return typeId;
+    }
+
+    public BreezeType getT() {
+        return t;
     }
 }

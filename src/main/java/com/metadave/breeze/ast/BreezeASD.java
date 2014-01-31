@@ -12,10 +12,14 @@ public class BreezeASD implements BreezeASTBase {
     }
 
     @Override
-    public void accept(BreezeASTVisitor visitor) {
+    public void accept(BreezeASTVisitor visitor)  throws Exception{
         for(BreezeDefinition d: definitions) {
             d.accept(visitor);
         }
         visitor.visit(this);
+    }
+
+    public List<BreezeDefinition> getDefinitions() {
+        return definitions;
     }
 }

@@ -10,8 +10,18 @@ public class BreezeConstructor implements BreezeASTBase {
     }
 
     @Override
-    public void accept(BreezeASTVisitor visitor) {
-        fields.accept(visitor);
+    public void accept(BreezeASTVisitor visitor)  throws Exception{
+        if(fields != null) {
+            fields.accept(visitor);
+        }
         visitor.visit(this);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public BreezeFields getFields() {
+        return fields;
     }
 }
