@@ -9,9 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 
 public class TestBreeze {
@@ -132,7 +130,7 @@ public class TestBreeze {
             String s =
                     "def_list   = DefList(definition, def_list)\n" +
                     "def        = ProdDef(field_list)\n" +
-                    "             | SumDef(ctor_list, field_list? atts)\n" +
+                    "           | SumDef(ctor_list, field_list? atts)\n" +
                     "ctor_list  = CtorList(ctor, ctor_list)\n" +
                     "ctor       = Constructor(id, field_list?)\n" +
                     "field_list = FieldList(field, field_list)\n" +
