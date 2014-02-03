@@ -2,7 +2,7 @@ package com.metadave.breeze.ast;
 
 import java.util.List;
 
-public class BreezeSumType extends BreezeType implements BreezeASTBase {
+public class BreezeSumType implements BreezeASTBase {
     List<BreezeConstructor> ctors;
     BreezeFields attributes;
 

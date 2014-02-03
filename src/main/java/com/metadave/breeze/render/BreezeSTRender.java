@@ -38,8 +38,4 @@ public class BreezeSTRender implements BreezeASTVisitor {
 
     }
 
-    @Override
-    public void visit(BreezeType t)  throws Exception{
-
-    }
 }

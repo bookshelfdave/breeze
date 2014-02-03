@@ -27,7 +27,7 @@ public class Breeze {
             BreezeParser.AsdContext ctx = parser.asd();
             walker.walk(b, ctx);
             BreezeASD asd = (BreezeASD)b.getValue(ctx);
-            System.out.println(asd);
+            //System.out.println(asd);
             asd.accept(new BreezeVerifyVisitor());
             if(visitors != null) {
                 for(BreezeASTVisitor v: visitors) {

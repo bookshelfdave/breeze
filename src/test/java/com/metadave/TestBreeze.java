@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -201,9 +200,4 @@ class TestVisitor implements BreezeASTVisitor {
         objs.add(st.getClass());
     }
 
-    @Override
-    public void visit(BreezeType t) throws Exception {
-        // it's a trap! ProductType + SumType already have this case covered
-        objs.add(t.getClass());
-    }
 }

@@ -51,8 +51,5 @@ public class BreezeVerifyVisitor implements BreezeASTVisitor {
 
     }
 
-    @Override
-    public void visit(BreezeType t)  throws Exception{
 
-    }
 }

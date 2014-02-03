@@ -8,5 +8,4 @@ public interface BreezeASTVisitor {
     void visit(BreezeFields fields) throws Exception;
     void visit(BreezeProductType pt) throws Exception;
     void visit(BreezeSumType st) throws Exception;
-    void visit(BreezeType t) throws Exception;
 }

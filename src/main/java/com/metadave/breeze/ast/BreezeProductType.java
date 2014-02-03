@@ -1,6 +1,6 @@
 package com.metadave.breeze.ast;
 
-public class BreezeProductType extends BreezeType implements BreezeASTBase  {
+public class BreezeProductType implements BreezeASTBase {
     BreezeFields fields;
 
     public BreezeProductType(BreezeFields fields) {

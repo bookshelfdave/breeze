@@ -52,7 +52,7 @@ public class BreezeWalker extends BreezeBaseListener {
     @Override
     public void exitDefinition(BreezeParser.DefinitionContext ctx) {
         String typeId = ctx.TYPEID().getText();
-        BreezeType t = (BreezeType)getValue(ctx.type());
+        BreezeASTBase t = (BreezeASTBase)getValue(ctx.type());
         BreezeDefinition bd = new BreezeDefinition(typeId, t);
         setValue(ctx, bd);
     }
