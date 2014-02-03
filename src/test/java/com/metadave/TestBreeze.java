@@ -127,6 +127,24 @@ public class TestBreeze {
 
 
     @Test
+    public void testSelf() {
+        try {
+            String s =
+                    "def_list   = DefList(definition, def_list)\n" +
+                    "def        = ProdDef(field_list)\n" +
+                    "             | SumDef(ctor_list, field_list? atts)\n" +
+                    "ctor_list  = CtorList(ctor, ctor_list)\n" +
+                    "ctor       = Constructor(id, field_list?)\n" +
+                    "field_list = FieldList(field, field_list)\n" +
+                    "field      = Field(typeid, id, qualifier)\n" +
+                    "qualifier  = FieldNone | FieldSequence | FieldOptional";
+            Breeze.parse(s);
+        } catch (Exception e) {
+            fail();
+        }
+    }
+
+    @Test
     public void testVisitor() {
         try {
             TestVisitor v = new TestVisitor();
