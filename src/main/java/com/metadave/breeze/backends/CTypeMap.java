@@ -2,7 +2,7 @@ package com.metadave.breeze.backends;
 
 import com.metadave.breeze.BreezeTypeMap;
 
-public class CTypeMap implements BreezeTypeMap {
+public class CTypeMap extends BreezeTypeMap {
     @Override
     public String typeForBoolean() {
         return "int";

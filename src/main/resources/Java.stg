@@ -1,9 +1,39 @@
-classdef(RenderConfig, BreezeClassname, BreezeBody) ::= <<
-
+breeze_classdef(RenderConfig, BreezeClassname, BreezeBody, BreezeCollectionType) ::= <<
 <if(RenderConfig.BreezePackage)>package <RenderConfig.BreezePackage>; <endif>
 
+<if(BreezeCollectionType)>import java.util.List;<endif>
+
 public class <RenderConfig.BreezeClassPrefix><BreezeClassname> <if(RenderConfig.BreezeBase)> implements <RenderConfig.BreezeBase> <endif> {
+   <if(BreezeCollectionType)>List\<<BreezeCollectionType>\> children;<endif>
+
    <BreezeBody>
+
+   <if(BreezeCollectionType)>
+   public List\<<BreezeCollectionType>\> getChildren() {
+        return children;
+   }
+   <endif>
 }
 >>
 
+breeze_body(RenderConfig, BreezeEnums, BreezeAttDecls, BreezeAttAccessors) ::= <<
+    <BreezeEnums>
+    <BreezeAttDecls; separator="\n">
+    <BreezeAttAccessors; separator="\n">
+>>
+
+breeze_enums(RenderConfig, BreezeEnumValue) ::= <<
+    public enum values {
+        <BreezeEnumValue; separator=", ">
+    }
+>>
+
+breeze_attdef(RenderConfig, BreezeAttName, BreezeAttType) ::= <<
+    private <BreezeAttType> _<BreezeAttName>;
+>>
+
+breeze_attaccess(RenderConfig, BreezeAttName, BreezeAttType) ::= <<
+    public <BreezeAttType> get<BreezeAttName>() {
+        return _<BreezeAttName>;
+    }
+>>

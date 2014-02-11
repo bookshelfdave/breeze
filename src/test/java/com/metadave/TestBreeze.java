@@ -73,14 +73,15 @@ public class TestBreeze {
     public void testRender() {
         try {
             String s =
-                    "stm = Compound(stm,stm)\n" +
-                            "| Assign(identifier, exp)\n" +
-                            "| Print(exp_list)\n" +
-                            "exp_list = ExpList(exp, exp_list) | Nil\n" +
-                            "exp = Id(identifier)\n" +
-                            "| Num(int)\n" +
-                            "| Op(exp, binop, exp)\n" +
-                            "binop = Plus | Minus | Times | Div";
+                    "defList   = DefList(def, defList)\n" +
+                    "def        = ProdDef(fieldList)\n" +
+                    "            | SumDef(ctorList, fieldList? atts)\n" +
+                    "             attributes (boolean collection, boolean enumeration)\n" +
+                    "ctorList  = CtorList(ctor, ctorList)\n" +
+                    "ctor       = Constructor(id, fieldList?)\n" +
+                    "fieldList = FieldList(field, fieldList)\n" +
+                    "field      = Field(typeid, id, qualifier)\n" +
+                    "qualifier  = FieldNone | FieldSequence | FieldOptional";
             List<BreezeASTVisitor> visitors = new ArrayList<BreezeASTVisitor>();
             visitors.add(new BreezeSTRender("Java.stg"));
             Breeze.parse(s, visitors);
@@ -155,7 +156,7 @@ public class TestBreeze {
     public void testSelf() {
         try {
             String s =
-                    "def_list   = DefList(definition, def_list)\n" +
+                    "def_list   = DefList(def, def_list)\n" +
                     "def        = ProdDef(field_list)\n" +
                     "           | SumDef(ctor_list, field_list? atts)\n" +
                     "ctor_list  = CtorList(ctor, ctor_list)\n" +

@@ -5,7 +5,7 @@ import com.metadave.breeze.BreezeTypeMap;
 
 import java.math.BigInteger;
 
-public class JavaTypeMap implements BreezeTypeMap {
+public class JavaTypeMap extends BreezeTypeMap {
     @Override
     public String typeForBoolean() {
         return java.lang.Boolean.class.getName();

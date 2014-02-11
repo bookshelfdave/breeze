@@ -90,6 +90,41 @@ public class BreezeVerifyVisitor implements BreezeASTVisitor {
             throw new Exception("Duplicate definition found:" + def.getTypeId());
         }
         //checkKeyword(def.getTypeId());
+        identifyList(def);
+        identifyEnum(def);
+    }
+
+    private void identifyEnum(BreezeDefinition def) {
+        if(def.getT() instanceof BreezeSumType) {
+            BreezeSumType st = (BreezeSumType)def.getT();
+            int fieldCount = 0;
+            if(st.getCtors().size() > 0) {
+                for(BreezeConstructor ctor : st.getCtors()) {
+                    if(ctor.getFields() != null) {
+                        fieldCount += ctor.getFields().getFields().size();
+                    } // otherwise, 0
+                }
+                if(fieldCount == 0) {
+                    def.setEnumeration(true);
+                }
+            }
+        }
+    }
+
+    private void identifyList(BreezeDefinition def) {
+        if(def.getT() instanceof BreezeSumType) {
+            BreezeSumType st = (BreezeSumType)def.getT();
+            if(st.getCtors().size() == 1) {
+                BreezeConstructor ctor = st.getCtors().get(0);
+                if(ctor.getFields().getFields().size() == 2) {
+                        String ctorTypeId = ctor.getFields().getFields().get(1).getTypeid();
+                    if(ctorTypeId.equals(def.getTypeId())) {
+                        System.out.println("Found a list constructor: " + ctorTypeId);
+                        def.setCollection(true);
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -117,5 +152,6 @@ public class BreezeVerifyVisitor implements BreezeASTVisitor {
         if(keywords.contains(def)) {
             throw new Exception("Definition id is already a keyword:" + def);
         }
+
     }
 }

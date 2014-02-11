@@ -112,4 +112,8 @@ public class BreezeWalker extends BreezeBaseListener {
         setValue(ctx, ctor);
     }
 
+    @Override
+    public void exitAtts(BreezeParser.AttsContext ctx) {
+        setValue(ctx, getValue(ctx.fields()));
+    }
 }

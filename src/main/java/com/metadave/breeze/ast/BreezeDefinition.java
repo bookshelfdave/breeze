@@ -3,6 +3,8 @@ package com.metadave.breeze.ast;
 public class BreezeDefinition implements BreezeASTBase {
     String typeId;
     BreezeASTBase t;
+    boolean collection = false;
+    boolean enumeration = false;
 
     public BreezeDefinition(String typeId, BreezeASTBase t) {
         this.typeId = typeId;
@@ -21,5 +23,21 @@ public class BreezeDefinition implements BreezeASTBase {
 
     public BreezeASTBase getT() {
         return t;
+    }
+
+    public boolean isCollection() {
+        return collection;
+    }
+
+    public void setCollection(boolean collection) {
+        this.collection = collection;
+    }
+
+    public boolean isEnumeration() {
+        return enumeration;
+    }
+
+    public void setEnumeration(boolean enumeration) {
+        this.enumeration = enumeration;
     }
 }

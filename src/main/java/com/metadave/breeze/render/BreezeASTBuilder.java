@@ -3,7 +3,7 @@ package com.metadave.breeze.render;
 
 import com.metadave.breeze.ast.*;
 
-public class JavaASTGenerator implements BreezeASTVisitor {
+public class BreezeASTBuilder implements BreezeASTVisitor {
 
 
     @Override
