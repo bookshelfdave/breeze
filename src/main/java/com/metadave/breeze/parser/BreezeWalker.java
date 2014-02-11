@@ -45,7 +45,6 @@ public class BreezeWalker extends BreezeBaseListener {
         BreezeField f = new BreezeField(ctx.TYPEID().getText(),
                                         id,
                                         fq);
-        System.out.println(f);
         setValue(ctx, f);
     }
 

@@ -1,0 +1,9 @@
+classdef(RenderConfig, BreezeClassname, BreezeBody) ::= <<
+
+<if(RenderConfig.BreezePackage)>package <RenderConfig.BreezePackage>; <endif>
+
+public class <RenderConfig.BreezeClassPrefix><BreezeClassname> <if(RenderConfig.BreezeBase)> implements <RenderConfig.BreezeBase> <endif> {
+   <BreezeBody>
+}
+>>
+

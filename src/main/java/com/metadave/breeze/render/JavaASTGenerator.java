@@ -5,6 +5,7 @@ import com.metadave.breeze.ast.*;
 
 public class JavaASTGenerator implements BreezeASTVisitor {
 
+
     @Override
     public void visit(BreezeASD asd) throws Exception {
 

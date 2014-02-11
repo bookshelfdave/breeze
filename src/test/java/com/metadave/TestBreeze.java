@@ -2,6 +2,8 @@ package com.metadave;
 
 import com.metadave.breeze.Breeze;
 import com.metadave.breeze.ast.*;
+import com.metadave.breeze.render.BreezeSTRender;
+import fj.data.Option;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,6 +13,8 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
+import static fj.data.Option.none;
+import static fj.data.Option.some;
 
 public class TestBreeze {
 
@@ -59,6 +63,29 @@ public class TestBreeze {
                        "binop = Plus | Minus | Times | Div";
             Breeze.parse(s);
         } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+    }
+
+
+    @Test
+    public void testRender() {
+        try {
+            String s =
+                    "stm = Compound(stm,stm)\n" +
+                            "| Assign(identifier, exp)\n" +
+                            "| Print(exp_list)\n" +
+                            "exp_list = ExpList(exp, exp_list) | Nil\n" +
+                            "exp = Id(identifier)\n" +
+                            "| Num(int)\n" +
+                            "| Op(exp, binop, exp)\n" +
+                            "binop = Plus | Minus | Times | Div";
+            List<BreezeASTVisitor> visitors = new ArrayList<BreezeASTVisitor>();
+            visitors.add(new BreezeSTRender("Java.stg"));
+            Breeze.parse(s, visitors);
+        } catch (Exception e) {
+            e.printStackTrace();
             fail();
         }
     }
